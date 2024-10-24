@@ -47,3 +47,8 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+a{
+  color: var(--white) !important;
+  text-decoration: none !important;
+}
