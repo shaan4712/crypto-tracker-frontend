@@ -1,7 +1,8 @@
 import * as React from 'react';
 import './styles.css';
 import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
+import Button from '../Button';
+import AnchorTemporaryDrawer from './drawer';
 
 const Header = () => {
   return (
@@ -18,8 +19,16 @@ const Header = () => {
           <p className='link'>Watchlist</p>
         </a>
         <a href='/'>
-          <p className='link'>Dashboard</p>
+          <Button text={"Dashboard"} 
+          onClick={() => console.log("Clicked dashboard")}
+          // outlined={true}
+          /> 
+          {/* giving value to prop  */}
         </a>
+      </div>
+
+      <div className='mobile-drawer'>
+        <AnchorTemporaryDrawer />
       </div>
     </div>
   )

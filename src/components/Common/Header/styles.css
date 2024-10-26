@@ -31,3 +31,35 @@
 .link:hover{
     color: var(--white);
 }
+
+.mobile-drawer {
+    display: none;
+    /* at full size or when max-width is > 800 px, drawer not shown  */
+}
+
+@media only screen and (max-width: 800px){
+    /* changes to make to header styling when screen's max width is 800px  */
+    .links{
+        display: none;
+        /* after width of 800 px, all links will disappear  */
+    }
+
+    .mobile-drawer{
+        display: block;
+    }
+
+    .drawer-div{
+        width: 40vw;
+        height: 100vh;
+        background-color: var(--black);
+        padding: 1.5rem;
+    }
+
+    .logo{
+        font-size: 1rem;
+    }
+
+    .navbar{
+        padding: 1.5rem;
+    }
+}
