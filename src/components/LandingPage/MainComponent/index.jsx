@@ -42,6 +42,7 @@ const MainComponent = () => {
         </motion.div>
       </div>
 
+      {/* iphone animation  */}
       <div className='phone-container'>
         <motion.img src={iphone} className='iphone'
         initial={{ y: -10 }} //oscillating -10 to 10 in y axis
