@@ -7,7 +7,7 @@ import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import "./styles.css";
 
-export default function TabsComponent() {
+export default function TabsComponent({ coins }) {
   const [value, setValue] = React.useState('grid');
 
   const handleChange = (event, newValue) => {
@@ -32,7 +32,20 @@ export default function TabsComponent() {
             <Tab label="List" value="list" sx={style}/>
           </TabList>
 
-        <TabPanel value="grid">Item One</TabPanel>
+        <TabPanel value="grid">
+          <div>
+            {coins.map((item, i) => {
+              return (
+                <div>
+                  <img src={item.image} />  
+                  <p key={i}>
+                    {i+1}. {item.name}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </TabPanel>
         <TabPanel value="list">Item Two</TabPanel>
       </TabContext>
     </div>
