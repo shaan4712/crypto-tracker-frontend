@@ -2,9 +2,11 @@ import React, { useEffect, useState } from 'react'
 import Header from '../components/Common/Header'
 import TabsComponent from '../components/Dashboard/Tabs'
 import axios from "axios";
+import Search from '../components/Dashboard/Search';
 
 const Dashboard = () => {
   const [coins, setCoins] = useState([]);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     //using axios for api fetch
@@ -18,10 +20,21 @@ const Dashboard = () => {
     });
   }, [])
 
+  const onSearchChange = (e) => {
+    setSearch(e.target.value);
+  }
+
+  //filter function for search bar
+  var filteredCoins = coins.filter((item) => 
+    item.name.toLowerCase().includes(search.toLowerCase()) ||
+    item.symbol.toLowerCase().includes(search.toLowerCase())
+  );
+
   return (
     <div>
         <Header />
-        <TabsComponent coins={coins}/>
+        <Search search={search} onSearchChange={onSearchChange}/>
+        <TabsComponent coins={filteredCoins}/>
         {/* passing coins (array of 100 coins - objects) */}
     </div>
   )
