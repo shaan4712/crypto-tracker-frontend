@@ -3,6 +3,7 @@ import './styles.css'
 import TrendingUpRoundedIcon from '@mui/icons-material/TrendingUpRounded';
 import TrendingDownRoundedIcon from '@mui/icons-material/TrendingDownRounded';
 import { Tooltip } from '@mui/material';
+import convertNumbers from '../../../functions/convertNumbers';
 
 
 const List = ({coin}) => {
@@ -29,7 +30,7 @@ const List = ({coin}) => {
               <div className='price-chip'>
                 {coin.price_change_percentage_24h.toFixed(2)}%
               </div>
-              <div className='icon-chip'>
+              <div className='icon-chip td-icon'>
                 <TrendingUpRoundedIcon />
               </div>
         </td> )
@@ -39,7 +40,7 @@ const List = ({coin}) => {
               <div className='price-chip chip-red'>
                 {coin.price_change_percentage_24h.toFixed(2)}%
               </div>
-              <div className='icon-chip icon-chip-red'>
+              <div className='icon-chip icon-chip-red td-icon'>
                 <TrendingDownRoundedIcon />
               </div>
           </td>
@@ -57,15 +58,22 @@ const List = ({coin}) => {
                 
         <Tooltip title="Total Volume" placement='bottom-end'>         
         <td>
-        <p className='total-volume td-right-align'>
+        <p className='total-volume td-right-align td-disable'>
         {coin.total_volume.toLocaleString()}</p>
         </td>
         </Tooltip>
         
         <Tooltip title="Market Cap" placement='bottom-end'>
-        <td>
+        <td className='desktop-td-mkt'>
         <p className='total-volume td-right-align'>
         {coin.market_cap.toLocaleString()}</p>
+        </td>
+        </Tooltip>
+
+        <Tooltip title="Market Cap" placement='bottom-end'>
+        <td className='mobile-td-mkt'>
+        <p className='total-volume td-right-align'>
+        {convertNumbers(coin.market_cap)}</p>
         </td>
         </Tooltip>
     </tr>

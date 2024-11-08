@@ -13,3 +13,15 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+@media only screen and (max-width: 1200px){
+    .list-table{
+        width: 95%;
+    }
+}
+
+@media only screen and (max-width: 450px){
+    .list-table{
+        width: 100%;
+    }
+}
